@@ -1,4 +1,4 @@
-Authors: Lubomir Meszaros, Roxana-Catalina Moldovan
+Author: Roxana-Catalina Moldovan
 
 Instalation guide: 
 
@@ -35,5 +35,4 @@ Open  http://localhost:4200/app-register
 To create an admin:
 - go to the termnal (monogd.exe)
 - run: db.user.save({email:"admin@a.dk", password: "1234", role:2})
-ROLE 1 = user
-ROLE 2 = admin
+
