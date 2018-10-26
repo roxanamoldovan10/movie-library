@@ -1,0 +1,10 @@
+<div *ngIf="loggedin">
+  <ul>
+      <li><a (click)="this.add=false"><i class="fas fa-ellipsis-h"></i><br>Home</a></li>
+      <li *ngIf="this.role === '2'"><a (click)="this.add=true"><i class="fas fa-ellipsis-h"></i><br>Add movie</a></li>
+  </ul>
+
+  <app-add-movie *ngIf="this.add"></app-add-movie>
+  <app-list *ngIf="!this.add"></app-list>
+</div>
+

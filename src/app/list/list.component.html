@@ -1,0 +1,17 @@
+<div *ngIf="!movieDetails" class="row">
+  <div class="col-md-3" *ngFor="let movie of movieList" (click)="showDetails(movie)">
+      <img class="img-size" src="assets\images\movie-sample.jpg" /> 
+      <a >{{movie.name}}</a>
+  </div>
+</div>
+
+<!-- Movie details -->
+<div *ngIf="movieDetails">
+  <span class="pull-right" (click)="this.movieDetails = undefined"><i class="fas fa-times fa-2x"></i></span>
+    <img class="img-size" src="assets\images\movie-sample.jpg">
+  <div>Name: {{movieDetails.name}}</div>
+  <div>Genere: {{movieDetails.genere}}</div>
+  <div>Duration: {{movieDetails.duration}}</div>
+  <div>Rating: <rating [(ngModel)]="movieDetails.rating" (click)="addRating(movieDetails.rating)"></rating></div>
+  
+</div>
