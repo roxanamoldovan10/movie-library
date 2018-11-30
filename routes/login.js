@@ -29,7 +29,7 @@ router.post('/register', function(req, res, next) {
 
 // Add new movie
 router.post('/add', function(req, res, next) {
-    db.movie.save({name:req.body.name, genere:req.body.genere, duration: req.body.duration}, function(err, result){
+    db.movie.save({name:req.body.name, genere:req.body.genere, duration: req.body.duration, rating: req.body.rating}, function(err, result){
         if(result){
             res.send({result: result});
         } else {

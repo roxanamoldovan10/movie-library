@@ -1,9 +1,18 @@
 .img-size {
-    width: 30%;
+    height: 200px;
 }
 
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+.movie-box {
+    left: 10%;
+    top: 30px;
+}
+
+.movie-details {
+    margin: 2%;
 }

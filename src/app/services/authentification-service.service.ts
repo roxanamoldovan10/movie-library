@@ -36,9 +36,9 @@ export class AutentificationServiceService {
     }
 
 
-    addMovie(name: string, genere: string, duration: string): Observable<any> {
+    addMovie(name: string, genere: string, duration: string, rating: number): Observable<any> {
     
-        var options = {name: name, genere: genere, duration: duration}
+        var options = {name: name, genere: genere, duration: duration, rating: rating}
         return this.http.post(`http://localhost:3000/api/add`, options)
             .map((res:Response) => 
             res);

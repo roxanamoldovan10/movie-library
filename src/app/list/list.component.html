@@ -1,17 +1,21 @@
 <div *ngIf="!movieDetails" class="row">
-  <div class="col-md-3" *ngFor="let movie of movieList" (click)="showDetails(movie)">
+  <div class="col-md-12">
+    <div class="col-md-3 movie-details" *ngFor="let movie of movieList" (click)="showDetails(movie)">
       <img class="img-size" src="assets\images\movie-sample.jpg" /> 
       <a >{{movie.name}}</a>
+    </div>
   </div>
 </div>
 
 <!-- Movie details -->
-<div *ngIf="movieDetails">
+<div *ngIf="movieDetails" class="col-md-8 movie-box">
   <span class="pull-right" (click)="this.movieDetails = undefined"><i class="fas fa-times fa-2x"></i></span>
-    <img class="img-size" src="assets\images\movie-sample.jpg">
-  <div>Name: {{movieDetails.name}}</div>
-  <div>Genere: {{movieDetails.genere}}</div>
-  <div>Duration: {{movieDetails.duration}}</div>
-  <div>Rating: <rating [(ngModel)]="movieDetails.rating" (click)="addRating(movieDetails.rating)"></rating></div>
+    <img class="col-md-5" src="assets\images\movie-sample.jpg">
+    <div class="col-md-5">
+      <div>Name: {{movieDetails.name}}</div>
+      <div>Genere: {{movieDetails.genere}}</div>
+      <div>Duration: {{movieDetails.duration}}</div>
+      <div>Rating: <rating [(ngModel)]="movieDetails.rating" (click)="addRating(movieDetails.rating)"></rating></div>
+    </div>
   
 </div>

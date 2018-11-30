@@ -22,7 +22,7 @@ export class AddMovieComponent implements OnInit {
 
   add() {
     if(this.model.movieName && this.model.genere && this.model.duration) {
-      this.authenticationService.addMovie(this.model.movieName, this.model.genere, this.model.duration).subscribe(
+      this.authenticationService.addMovie(this.model.movieName, this.model.genere, this.model.duration, this.model.rating).subscribe(
         (res:Response)=> {
           this.added = true;
         }, (error)=> {

@@ -26,7 +26,7 @@ Set up MongoDB:
 - after opened click on mongod.exe
 TO create the DB:
 in the terminal you have opened (mongod.exe) run the commands:
-- use rollcall (this is the name of the db and it will create the db)
+- use movies (this is the name of the db and it will create the db)
 
 Open  http://localhost:4200/app-register
 - register

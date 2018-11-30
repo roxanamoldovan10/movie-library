@@ -2,7 +2,7 @@ import { AlertService } from './../services/alert-service.service';
 import { AutentificationServiceService } from './../services/authentification-service.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService, RollCallService, RegisterService } from '../services/index';
+import { UserService, MoviesService } from '../services/index';
 import { FormsModule } from '@angular/forms';
 import {RatingModule} from "ngx-rating";
 
@@ -20,14 +20,13 @@ export class ListComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private rollCallService: RollCallService,
+    private moviesService: MoviesService,
     private alertService: AlertService,
-    public registerService: RegisterService,
     private authenticationService: AutentificationServiceService
   ) { }
 
   ngOnInit() {
-    this.rollCallService.getmovies()
+    this.moviesService.getmovies()
     .subscribe(
       (res:any)=> {
         this.movieList = res.result;
