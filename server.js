@@ -3,7 +3,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const api = require('./routes/login');
 const movies = require('./routes/movies');
-const register = require('./routes/register');
 const app = express();
  
 app.use(bodyParser.json());
@@ -12,7 +11,6 @@ app.use(express.static(path.join(__dirname, 'dist'))); // Point static path to d
  
 app.use('/api', api); // Set our api routes 
 app.use('/movies', movies);
-app.use('/reg', register);
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 }); //Catch all other routes and return the index file
