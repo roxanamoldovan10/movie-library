@@ -43,6 +43,7 @@ export class ListComponent implements OnInit {
 
   addRating(starsCount) {
     this.movieDetails.rating = (this.rate + starsCount)/2;
+    
 
     this.authenticationService.updateMovie(this.movieDetails).subscribe(
       (res:Response)=> {

@@ -19,9 +19,36 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {}
 
+  userPrototype = {
+ 
+    init: function ( email, password ) {
+      this.email = email;
+      this.password = password
+    },
+   
+    getEmail: function () {
+      console.log( "User email is" + this.email);
+    },
+    getPassword: function () {
+      console.log( "User password is" + this.password);
+    }
+  };
+
+  user(email, password) {
+    function F() {};
+    F.prototype = this.userPrototype;
+   
+    var f = new F();
+   
+    f.init( email, password );
+    return f;
+  }
+  
   register() {
     if(this.model.username && this.model.password) {
-      this.authenticationService.register(this.model.username, this.model.password).subscribe(
+      var user = this.user(this.model.username, this.model.password);
+
+      this.authenticationService.register(user.email, user.password).subscribe(
         (res:Response)=> {
           this.router.navigate(['/app-login'])
         }, (error)=> {
