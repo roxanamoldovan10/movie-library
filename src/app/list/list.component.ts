@@ -2,7 +2,7 @@ import { AlertService } from './../services/alert-service.service';
 import { AutentificationServiceService } from './../services/authentification-service.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService, MoviesService } from '../services/index';
+import { MoviesService } from '../services/index';
 import { FormsModule } from '@angular/forms';
 import {RatingModule} from "ngx-rating";
 
@@ -29,7 +29,7 @@ export class ListComponent implements OnInit {
     this.moviesService.getmovies()
     .subscribe(
       (res:any)=> {
-        this.movieList = res.result;
+        this.movieList = res;
       }, (error)=> {
         this.alertService.error("Error when getting the list");
       } 
@@ -46,8 +46,21 @@ export class ListComponent implements OnInit {
     
 
     this.authenticationService.updateMovie(this.movieDetails).subscribe(
-      (res:Response)=> {
+      (res:any)=> {
         console.log('added!!');
+        this.alertService.success('Successful', true);
+      }, (error)=> {
+        this.alertService.error("Error");
+      } 
+    );
+  }
+
+  deleteMovie(movieDetails) {
+  
+    this.authenticationService.deleteMovie(this.movieDetails).subscribe(
+      (res:any)=> {
+        console.log('deleted!!');
+        this.movieDetails = undefined;
         this.alertService.success('Successful', true);
       }, (error)=> {
         this.alertService.error("Error");

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AlertService, UserService, AutentificationServiceService } from '../services/index';
+import { AlertService, AutentificationServiceService } from '../services/index';
 
 @Component({
   selector: 'app-add-movie',
@@ -11,7 +11,7 @@ import { AlertService, UserService, AutentificationServiceService } from '../ser
 export class AddMovieComponent implements OnInit {
   model: any = {};
   loading = false;
-  added = false;
+  add = false;
 
   constructor(
     private router: Router,
@@ -41,13 +41,13 @@ export class AddMovieComponent implements OnInit {
   }
 
 
-  add() {
+  addMovie() {
     if(this.model.movieName && this.model.genere && this.model.duration) {
       var movie = this.movie(this.model.movieName, this.model.genere, this.model.duration, this.model.rating);
 
       this.authenticationService.addMovie(movie.movieName, movie.genere, movie.duration, movie.rating).subscribe(
-        (res:Response)=> {
-          this.added = true;
+        (res:any)=> {
+          this.add = true;
         }, (error)=> {
           this.alertService.error("Error");
         } 

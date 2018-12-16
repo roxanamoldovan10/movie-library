@@ -12,5 +12,9 @@ ul {
 
 .movie-details {
   margin: 2%; }
+  
+.cursor-pointer {
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=list.component.css.map */

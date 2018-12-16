@@ -2,7 +2,6 @@ import { MoviesService } from './../services/movies.service';
 import { AutentificationServiceService } from './../services/authentification-service.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../services/index';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,8 +17,7 @@ export class DashboardComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private AutentificationService: AutentificationServiceService,
-    private moviesService : MoviesService,
-    private UserService: UserService) {
+    private moviesService : MoviesService) {
       this.loggedin = JSON.parse(localStorage.getItem('currentUser')) ? true:false;
      }
 

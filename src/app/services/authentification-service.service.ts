@@ -4,16 +4,24 @@ import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs';
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
+import { Movie } from '../movie';
+import { Response } from '@angular/http';
 
 @Injectable()
 export class AutentificationServiceService {
     authentificated: boolean = false;
-    httpOptions: any;
     
 
-  constructor(private http: HttpClient, 
+  constructor(private http: Http, 
     private router: Router) {}
 
+     httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'Authorization': 'my-auth-token'
+        })
+      };
+      
     login(email: string, password: string): Observable<any> {
         this.authentificated = true;
         
@@ -21,8 +29,9 @@ export class AutentificationServiceService {
         var options = {params: {email: email, password: password}}
         return this.http.get(`http://localhost:3000/api/login`, options)
             .map((res: any) => {
-                var value = [res.result.role];
-                localStorage.setItem('userDetails', JSON.stringify(res.result.role))
+                var result = res.json();
+                var value = [result.result.role];
+                localStorage.setItem('userDetails', JSON.stringify(result.result.role))
                 localStorage.setItem('currentUser', JSON.stringify(email))
             });
     }
@@ -36,12 +45,11 @@ export class AutentificationServiceService {
     }
 
 
-    addMovie(name: string, genere: string, duration: string, rating: number): Observable<any> {
+    addMovie(name: string, genere: string, duration: string, rating: number): Observable<Movie[]> {
     
         var options = {name: name, genere: genere, duration: duration, rating: rating}
         return this.http.post(`http://localhost:3000/api/add`, options)
-            .map((res:Response) => 
-            res);
+            .map(this.extractData);
     }
     
     getAuth() {
@@ -55,12 +63,21 @@ export class AutentificationServiceService {
         return false;
     }
 
-    updateMovie(movieDetails: any) {
+    updateMovie(movieDetails: any): Observable<Movie[]> {
         var options = {movie: movieDetails}
         return this.http.put(`http://localhost:3000/api/update`, options)
-            .map((res:Response) => 
-            res);
+            .map(this.extractData);
+    }
+
+    deleteMovie(movieDetails: any): Observable<Movie[]> {
+        var options = {movie: movieDetails}
+        return this.http.post(`http://localhost:3000/api/delete`, movieDetails)
+            .map(this.extractData);
     }
     
+    private extractData(res: Response) {
+        let body = res.json();
+        return body.result || { };
+     }
 
 }

@@ -50,5 +50,16 @@ router.put('/update', function(req, res, next) {
     });
     
 });
+// Delete movie
+router.post('/delete', function(req, res, next) {
+    db.movie.remove({ _id : req.body._id }, function(err, result){
+        if(result){
+            res.send({result: result});
+        } else {
+            return res.status(400).send(err);
+        }
+    });
+    
+});
  
 module.exports = router;

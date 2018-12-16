@@ -9,7 +9,7 @@ import {Http} from '@angular/http';
 import { AppRoutingModule }     from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { AlertService, AutentificationServiceService, UserService, MoviesService } from './services/index';
+import { AlertService, AutentificationServiceService, MoviesService } from './services/index';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -42,7 +42,6 @@ import {RatingModule} from "ngx-rating";
   providers: [
     AlertService,
     AutentificationServiceService,
-    UserService,
     MoviesService,
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

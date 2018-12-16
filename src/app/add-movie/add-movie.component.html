@@ -1,6 +1,6 @@
 <div class="col-md-6 col-md-offset-3">
   <h2>Add new movie</h2>
-  <form name="form" (ngSubmit)="f.form.valid && add()" #f="ngForm" novalidate>
+  <form name="form" (ngSubmit)="f.form.valid && addMovie()" #f="ngForm" novalidate>
       
       <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !movieName.valid }">
           <label for="movieName">Name</label>
@@ -28,5 +28,5 @@
           <a (click)="windows.history.back" class="btn btn-link">Cancel</a>
       </div>
   </form>
-  <div *ngIf="this.added" class="success">Success!</div>
+  <div *ngIf="this.add" class="success">Success!</div>
 </div>
