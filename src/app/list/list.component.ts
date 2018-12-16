@@ -16,6 +16,7 @@ export class ListComponent implements OnInit {
   movieDetails: any;
   starsCount: number;
   rate: number;
+  role: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,6 +35,7 @@ export class ListComponent implements OnInit {
         this.alertService.error("Error when getting the list");
       } 
     );
+    this.role = localStorage.getItem('userDetails');
   }
 
   showDetails(movie) {
