@@ -45,9 +45,9 @@ export class AutentificationServiceService {
     }
 
 
-    addMovie(name: string, genere: string, duration: string, rating: number): Observable<Movie[]> {
+    addMovie(name: string, genere: string, duration: string, image: string, rating: number): Observable<Movie[]> {
     
-        var options = {name: name, genere: genere, duration: duration, rating: rating}
+        var options = {name: name, genere: genere, duration: duration, image: image, rating: rating}
         return this.http.post(`http://localhost:3000/api/add`, options)
             .map(this.extractData);
     }

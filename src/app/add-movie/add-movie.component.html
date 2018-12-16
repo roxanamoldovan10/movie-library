@@ -17,6 +17,11 @@
         <input type="text" class="form-control" name="duration" [(ngModel)]="model.duration" #duration="ngModel" required />
         <div *ngIf="f.submitted && !duration.valid" class="help-block">Duration is required</div>
     </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !duration.valid }">
+        <label for="image">Image</label>
+        <input type="text" class="form-control" name="image" [(ngModel)]="model.image" #image="ngModel" required />
+        <div *ngIf="f.submitted && !image.valid" class="help-block">Image is required</div>
+    </div>
     <div class="form-group">
         <label for="rating">Rating</label>
         <rating name="rating" [(ngModel)]="model.rating"></rating>

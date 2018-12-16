@@ -59,7 +59,8 @@ export class ListComponent implements OnInit {
   
     this.authenticationService.deleteMovie(this.movieDetails).subscribe(
       (res:any)=> {
-        console.log('deleted!!');
+        var index = this.movieList.indexOf(movieDetails);
+        this.movieList.splice(index, 1);
         this.movieDetails = undefined;
         this.alertService.success('Successful', true);
       }, (error)=> {

@@ -22,30 +22,31 @@ export class AddMovieComponent implements OnInit {
 
   moviePrototype = {
  
-    init: function (movieName, genere, duration, rating) {
+    init: function (movieName, genere, duration, image, rating) {
       this.movieName = movieName;
       this.genere = genere;
       this.duration = duration;
+      this.image = image;
       this.rating = rating;
     }
   };
 
-  movie(movieName, genere, duration, rating) {
+  movie(movieName, genere, duration, image, rating) {
     function F() {};
     F.prototype = this.moviePrototype;
    
     var f = new F();
    
-    f.init( movieName, genere, duration, rating );
+    f.init( movieName, genere, duration, image, rating );
     return f;
   }
 
 
   addMovie() {
-    if(this.model.movieName && this.model.genere && this.model.duration) {
-      var movie = this.movie(this.model.movieName, this.model.genere, this.model.duration, this.model.rating);
+    if(this.model.movieName && this.model.genere && this.model.image && this.model.duration) {
+      var movie = this.movie(this.model.movieName, this.model.genere, this.model.duration, this.model.image, this.model.rating);
 
-      this.authenticationService.addMovie(movie.movieName, movie.genere, movie.duration, movie.rating).subscribe(
+      this.authenticationService.addMovie(movie.movieName, movie.genere, movie.duration, movie.image, movie.rating).subscribe(
         (res:any)=> {
           this.add = true;
         }, (error)=> {
