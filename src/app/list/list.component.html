@@ -9,7 +9,7 @@
 
 <!-- Movie details -->
 <div *ngIf="movieDetails" class="col-md-8 movie-box">
-  <span class="pull-right" (click)="this.movieDetails = undefined"><i class="fas fa-times fa-2x"></i></span>
+  <span class="pull-right" (click)="this.movieDetails = undefined"><i class="fas fa-times fa-2x"></i></span><br>
   <span *ngIf="this.role === '2'" class="pull-right p-t-75" (click)="deleteMovie(movieDetails)"><i class="fas fa-trash-alt fa-2x"></i></span>
     <img class="col-md-5" src={{movieDetails.image}}>
     <div class="col-md-5">
