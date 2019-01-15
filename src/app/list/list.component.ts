@@ -1,5 +1,5 @@
 import { AlertService } from './../services/alert-service.service';
-import { AutentificationServiceService } from './../services/authentification-service.service';
+import { AutentificationService } from './../services/authentification-service.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from '../services/index';
@@ -23,7 +23,7 @@ export class ListComponent implements OnInit {
     private router: Router,
     private moviesService: MoviesService,
     private alertService: AlertService,
-    private authenticationService: AutentificationServiceService
+    private authenticationService: AutentificationService
   ) { }
 
   ngOnInit() {

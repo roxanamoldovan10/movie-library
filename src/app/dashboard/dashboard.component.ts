@@ -1,5 +1,5 @@
 import { MoviesService } from './../services/movies.service';
-import { AutentificationServiceService } from './../services/authentification-service.service';
+import { AutentificationService } from './../services/authentification-service.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private AutentificationService: AutentificationServiceService,
+    private AutentificationService: AutentificationService,
     private moviesService : MoviesService) {
       this.loggedin = JSON.parse(localStorage.getItem('currentUser')) ? true:false;
      }

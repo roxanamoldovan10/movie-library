@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AlertService, AutentificationServiceService } from '../services/index';
+import { AlertService, AutentificationService } from '../services/index';
 
 @Component({
   selector: 'app-add-movie',
@@ -16,7 +16,7 @@ export class AddMovieComponent implements OnInit {
   constructor(
     private router: Router,
         private alertService: AlertService,
-        private authenticationService: AutentificationServiceService) { }
+        private authenticationService: AutentificationService) { }
 
   ngOnInit() {}
 
@@ -32,13 +32,13 @@ export class AddMovieComponent implements OnInit {
   };
 
   movie(movieName, genere, duration, image, rating) {
-    function F() {};
-    F.prototype = this.moviePrototype;
+    function Movie() {};
+    Movie.prototype = this.moviePrototype;
    
-    var f = new F();
+    var movie = new Movie();
    
-    f.init( movieName, genere, duration, image, rating );
-    return f;
+    movie.init( movieName, genere, duration, image, rating );
+    return movie;
   }
 
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertService, AutentificationServiceService } from '../services/index';
+import { AlertService, AutentificationService } from '../services/index';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authenticationService: AutentificationServiceService,
+    private authenticationService: AutentificationService,
     private alertService: AlertService
   ) {
     this.isAuthenticated = false;
@@ -40,13 +40,13 @@ export class LoginComponent implements OnInit {
   };
 
   user(email, password) {
-    function F() {};
-    F.prototype = this.userPrototype;
+    function User() {};
+    User.prototype = this.userPrototype;
    
-    var f = new F();
+    var user = new User();
    
-    f.init( email, password );
-    return f;
+    user.init( email, password );
+    return user;
   }
 
   login() {

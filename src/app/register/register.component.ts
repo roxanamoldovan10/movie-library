@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AlertService, AutentificationServiceService } from '../services/index';
+import { AlertService, AutentificationService} from '../services/index';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private router: Router,
         private alertService: AlertService,
-        private authenticationService: AutentificationServiceService) { }
+        private authenticationService: AutentificationService) { }
 
   ngOnInit() {}
 
@@ -35,13 +35,13 @@ export class RegisterComponent implements OnInit {
   };
 
   user(email, password) {
-    function F() {};
-    F.prototype = this.userPrototype;
+    function User() {};
+    User.prototype = this.userPrototype;
    
-    var f = new F();
+    var user = new User();
    
-    f.init( email, password );
-    return f;
+    user.init( email, password );
+    return user;
   }
   
   register() {

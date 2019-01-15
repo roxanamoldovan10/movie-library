@@ -8,7 +8,7 @@ import { Movie } from '../movie';
 import { Response } from '@angular/http';
 
 @Injectable()
-export class AutentificationServiceService {
+export class AutentificationService {
     authentificated: boolean = false;
     
 
